@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-07-06T22:38:48 IST" name="Login Page Suite" finished-at="2023-07-06T22:39:17 IST" duration-ms="29534">
+    <groups>
+    </groups>
+    <test started-at="2023-07-06T22:38:48 IST" name="Login Page Test 1" finished-at="2023-07-06T22:39:17 IST" duration-ms="29534">
+      <class name="com.qa.orangehrm.tests.login.LoginPageTests">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.orangehrm.tests.login.LoginPageTests@70ed52de]" started-at="2023-07-06T22:38:48 IST" name="setup" finished-at="2023-07-06T22:39:09 IST" duration-ms="21175" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="doLoginTest()[pri:0, instance:com.qa.orangehrm.tests.login.LoginPageTests@70ed52de]" started-at="2023-07-06T22:39:09 IST" name="doLoginTest" finished-at="2023-07-06T22:39:16 IST" duration-ms="6705" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doLoginTest -->
+        <test-method signature="loginPageTitleTest()[pri:0, instance:com.qa.orangehrm.tests.login.LoginPageTests@70ed52de]" started-at="2023-07-06T22:39:16 IST" name="loginPageTitleTest" finished-at="2023-07-06T22:39:16 IST" duration-ms="37" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginPageTitleTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.orangehrm.tests.login.LoginPageTests@70ed52de]" started-at="2023-07-06T22:39:16 IST" name="tearDown" finished-at="2023-07-06T22:39:17 IST" duration-ms="1039" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.qa.orangehrm.tests.login.LoginPageTests -->
+    </test> <!-- Login Page Test 1 -->
+    <test started-at="2023-07-06T22:38:48 IST" name="Login Page Test" finished-at="2023-07-06T22:39:17 IST" duration-ms="29489">
+      <class name="com.qa.orangehrm.tests.login.LoginPageTests">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.orangehrm.tests.login.LoginPageTests@53fb3dab]" started-at="2023-07-06T22:38:48 IST" name="setup" finished-at="2023-07-06T22:39:09 IST" duration-ms="21175" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="doLoginTest()[pri:0, instance:com.qa.orangehrm.tests.login.LoginPageTests@53fb3dab]" started-at="2023-07-06T22:39:09 IST" name="doLoginTest" finished-at="2023-07-06T22:39:16 IST" duration-ms="6702" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doLoginTest -->
+        <test-method signature="loginPageTitleTest()[pri:0, instance:com.qa.orangehrm.tests.login.LoginPageTests@53fb3dab]" started-at="2023-07-06T22:39:16 IST" name="loginPageTitleTest" finished-at="2023-07-06T22:39:16 IST" duration-ms="39" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginPageTitleTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.orangehrm.tests.login.LoginPageTests@53fb3dab]" started-at="2023-07-06T22:39:16 IST" name="tearDown" finished-at="2023-07-06T22:39:17 IST" duration-ms="994" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.qa.orangehrm.tests.login.LoginPageTests -->
+    </test> <!-- Login Page Test -->
+  </suite> <!-- Login Page Suite -->
+</testng-results>
