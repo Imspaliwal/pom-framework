@@ -14,6 +14,7 @@
 package com.qa.orangehrm.util;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -68,7 +69,17 @@ public class ElementUtil {
 
     }
 
+    public List<WebElement> getElements(By locator) {
+        return driver.findElements(locator);
+    }
+
+    public int getElementsCount(By locator) {
+        return getElements(locator).size();
+    }
+
     // *********************** Wait Utils *********************** //
+
+    // Keep all object of wait util in constructor
 
     public WebElement waitForElementVisible(By locator, int timeOut) {
 

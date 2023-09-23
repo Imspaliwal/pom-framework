@@ -16,13 +16,13 @@ package com.qa.orangehrm.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.qa.orangehrm.pages.common.NavigatePage;
 import com.qa.orangehrm.util.AppConstants;
-import com.qa.orangehrm.util.ElementUtil;
 
-public class LoginPage {
+public class LoginPage extends NavigatePage {
 
-    private final WebDriver driver;
-    private final ElementUtil eleUtil;
+    // private final WebDriver driver;
+    // private final ElementUtil eleUtil;
 
     // Locators
     private final By usernameLocator = By.name("username");
@@ -33,8 +33,9 @@ public class LoginPage {
 
     // Constructor
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        eleUtil = new ElementUtil(driver);
+        super(driver);
+        // this.driver = driver;
+        // eleUtil = new ElementUtil(this.driver);
 
     }
 

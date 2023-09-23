@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Admin Page Suite" verbose="4">
+
+	<test name="Admin Page Tests">
+	<parameter name="browser" value="chrome"/>
+		<classes>
+			<class name="com.qa.orangehrm.tests.adminPage.AdminPageTests">
+				<methods>
+					<include name="doSearchByUserNameTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+
+</suite>

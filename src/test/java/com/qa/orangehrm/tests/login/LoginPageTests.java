@@ -16,9 +16,9 @@ package com.qa.orangehrm.tests.login;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.qa.orangehrm.base.BaseTest;
+import com.qa.orangehrm.base.BaseTestNew;
 
-public class LoginPageTests extends BaseTest {
+public class LoginPageTests extends BaseTestNew {
 
     @Test
     public void loginPageTitleTest() {

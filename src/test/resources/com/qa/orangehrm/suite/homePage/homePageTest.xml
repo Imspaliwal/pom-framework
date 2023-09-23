@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Home Page Suite" verbose="4">
+
+	<test name="Home Page Tests">
+	<!-- <parameter name="browser" value="chrome"/> -->
+		<classes>
+			<class name="com.qa.orangehrm.tests.homePage.HomePageTests">
+				<methods>
+					<include name="homePageTitleTest" />
+					<include name="loginUserNameTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+
+</suite>

@@ -17,22 +17,32 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.qa.orangehrm.pages.common.AbstractPage;
+import com.qa.orangehrm.pages.common.BasePage;
+import com.qa.orangehrm.pages.common.NavigatePage;
 import com.qa.orangehrm.util.AppConstants;
-import com.qa.orangehrm.util.ElementUtil;
 
-public class HomePage {
+public class HomePage extends BasePage implements AbstractPage {
 
-    private final WebDriver driver;
-    private final ElementUtil eleUtil;
+    // private final WebDriver driver;
+    // private final ElementUtil eleUtil;
+    public NavigatePage navigateTo;
 
     // Locators
     By dashboardHeaderLocator = By.tagName("h6");
 
-    // Constructor
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
+    By loginUserNameLocator = By.xpath("//p[@class='oxd-userdropdown-name']");
 
-        eleUtil = new ElementUtil(driver);
+    // Constructor
+    // public HomePage(WebDriver driver) {
+    // this.driver = driver;
+    //
+    // eleUtil = new ElementUtil(this.driver);
+    // }
+
+    public HomePage(WebDriver driver) {
+        super(driver);
+
     }
 
     // Methods
@@ -45,5 +55,42 @@ public class HomePage {
 
         return dashboard.isDisplayed();
     }
+
+    public String homePageTitle() {
+
+        String title = eleUtil.waitForTitleIsAndCapture(AppConstants.HOME_PAGE_TITLE, AppConstants.MEDIUM_DEFAULT_WAIT);
+
+        System.out.println("Home Page Title is: " + title);
+
+        return title;
+    }
+
+    public String loginUserName() {
+
+        WebElement loginUserName = eleUtil.getElement(loginUserNameLocator);
+
+        return loginUserName.getText().trim();
+
+    }
+
+    @Override
+    public void navigateTo(String pageName, WebDriver driver) {
+        System.out.println("Navigating to page: " + pageName);
+
+        eleUtil.waitForTitleIsAndCapture(AppConstants.HOME_PAGE_TITLE, AppConstants.MEDIUM_DEFAULT_WAIT);
+        eleUtil.doClick(navigateToPageLocator(pageName));
+
+    }
+
+    // @Override
+    // public AbstractPage navigateTo(String pageName) {
+    // System.out.println("Navigating to page: " + pageName);
+    //
+    // eleUtil.waitForTitleIsAndCapture(AppConstants.HOME_PAGE_TITLE,
+    // AppConstants.MEDIUM_DEFAULT_WAIT);
+    // eleUtil.doClick(navigateToPageLocator(pageName));
+    //
+    // return new HomePage(driver);
+    // }
 
 }

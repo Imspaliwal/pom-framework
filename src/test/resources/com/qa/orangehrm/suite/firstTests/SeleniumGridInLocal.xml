@@ -1,0 +1,46 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Grid Test with Selenium Manager Suite" verbose="4" thread-count="4" parallel="tests">
+
+
+	<test name="Login Page Tests">
+		<parameter name="browser" value="chrome" />
+		<classes>
+
+			<class name="com.qa.orangehrm.tests.login.LoginPageTests">
+				<methods>
+					<include name="loginPageTitleTest" />
+					<include name="doLoginTest" />
+				</methods>
+			</class>
+
+		</classes>
+	</test>
+
+
+	<test name="Home Page Tests">
+		<parameter name="browser" value="chrome" />
+		<classes>
+
+			<class name="com.qa.orangehrm.tests.homePage.HomePageTests">
+				<methods>
+					<include name="homePageTitleTest" />
+					<exclude name="loginUserNameTest" />
+				</methods>
+			</class>
+
+		</classes>
+	</test>
+
+
+	<test name="Admin Page Tests">
+		<!-- <parameter name="browser" value="chrome"/> -->
+		<classes>
+			<class name="com.qa.orangehrm.tests.adminPage.AdminPageTests">
+				<methods>
+					<include name="doSearchByUserNameTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

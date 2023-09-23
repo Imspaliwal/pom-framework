@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Leave Page Suite" verbose="4">
+
+	<test name="Leave Page Tests">
+		<classes>
+			<class name="com.qa.orangehrm.tests.leavePage.LeavePageTests">
+				<methods>
+					<include name="doSearchLeaveTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+
+</suite>
