@@ -30,6 +30,19 @@ public class BasePage {
         return locator;
     }
 
+    /**
+     * navigateToTab
+     *
+     * navigate to different sub pages of application
+     *
+     * @param name
+     * @return
+     */
+    By navigateToTab(String[] name) {
+        By locator = By.xpath("//span[text()='" + name + "']");
+        return locator;
+    }
+
     // Constructor
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -43,5 +56,13 @@ public class BasePage {
     // Initializing Properties handled in Base Test
 
     // Initializing Browser handled in Base Test
+
+    public void navigateToTab(String names) {
+
+        String[] name = names.split(",");
+
+        eleUtil.doClick(null);
+
+    }
 
 }

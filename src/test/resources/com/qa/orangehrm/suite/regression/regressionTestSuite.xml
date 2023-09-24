@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- 
+What testNG first and second line do?
+
+<!ELEMENT suite (listeners|packages|test|parameter|method-selectors|suite-files)* >  
+
+-->
+
+<suite name="Regression Suite" verbose="1">
+
+	<test name="Regression tests">
+
+		<classes>
+
+			<!-- <class name="com.qa.orangehrm.tests.login.LoginPageTests"></class> -->
+			
+			<class name="com.qa.orangehrm.tests.adminPage.AdminPageTests"/>
+
+
+
+			
+
+		</classes>
+
+	</test>
+
+</suite>

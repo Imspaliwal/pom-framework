@@ -45,11 +45,17 @@ public class ElementUtil {
     }
 
     public void doClick(By locator) {
-
+        waitForElementVisible(locator, AppConstants.MEDIUM_DEFAULT_WAIT);
         getElement(locator).click();
 
     }
 
+    /**
+     * getElement
+     *
+     * @param locator
+     * @return
+     */
     public WebElement getElement(By locator) {
 
         WebElement element = null;
