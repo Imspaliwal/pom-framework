@@ -17,6 +17,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.qa.orangehrm.log.JLog;
 import com.qa.orangehrm.pages.common.AbstractPage;
 import com.qa.orangehrm.pages.common.BasePage;
 import com.qa.orangehrm.pages.common.NavigatePage;
@@ -75,7 +76,13 @@ public class HomePage extends BasePage implements AbstractPage {
 
     @Override
     public void navigateTo(String pageName, WebDriver driver) {
+
         System.out.println("Navigating to page: " + pageName);
+
+        JLog.info("Navigating to page: " + pageName);
+        JLog.write("Navigating to page: " + pageName);
+        JLog.warning("Navigating to page: " + pageName);
+        JLog.fail("Navigating to page: " + pageName);
 
         eleUtil.waitForTitleIsAndCapture(AppConstants.HOME_PAGE_TITLE, AppConstants.MEDIUM_DEFAULT_WAIT);
         eleUtil.doClick(navigateToPageLocator(pageName));

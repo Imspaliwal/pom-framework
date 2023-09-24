@@ -53,6 +53,7 @@ public class AdminPage extends NavigatePage {
 
     public int searchSystemUsers(String userName) throws InterruptedException {
 
+        eleUtil.waitForElementVisible(userNameSearchLocator, AppConstants.MEDIUM_DEFAULT_WAIT);
         eleUtil.doSendKeys(userNameSearchLocator, userName);
         eleUtil.doClick(searchBtnLocator);
 
@@ -61,6 +62,15 @@ public class AdminPage extends NavigatePage {
         int count = eleUtil.getElementsCount(tableRowLocator);
 
         return count;
+
+    }
+
+    /**
+     * listSkills
+     *
+     * @param columnName
+     */
+    public void listSkills(String columnName) {
 
     }
 
