@@ -22,24 +22,12 @@ public class BasePage {
 
     protected WebDriver driver;
     protected final ElementUtil eleUtil;
-    AbstractPage abstractPage;
+    protected AbstractPage abstractPage;
+    protected MenuPage menuPage;
 
     // Locators
     protected By navigateToPageLocator(String pageName) {
         By locator = By.xpath("//span[text()='" + pageName + "']");
-        return locator;
-    }
-
-    /**
-     * navigateToTab
-     *
-     * navigate to different sub pages of application
-     *
-     * @param name
-     * @return
-     */
-    By navigateToTab(String[] name) {
-        By locator = By.xpath("//span[text()='" + name + "']");
         return locator;
     }
 
@@ -48,6 +36,8 @@ public class BasePage {
         this.driver = driver;
 
         eleUtil = new ElementUtil(driver);
+        menuPage = new MenuPage(driver);
+
         // abstractPage = NavigateFactory.navigate("Admin", driver);
     }
 
@@ -56,13 +46,5 @@ public class BasePage {
     // Initializing Properties handled in Base Test
 
     // Initializing Browser handled in Base Test
-
-    public void navigateToTab(String names) {
-
-        String[] name = names.split(",");
-
-        eleUtil.doClick(null);
-
-    }
 
 }

@@ -29,13 +29,9 @@ public class AdminPageTests extends BaseTestNew {
         homePage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 
         adminPage = (AdminPage) NavigateFactory.navigate("Admin", driver);
-        System.out.println("Is Admin Page? " + adminPage);
         adminPage.navigateTo("Admin", driver);
 
         // adminPage = homePage.navigateTo("Admin");
-
-        // // Assert
-        // abstractPage.searchSystemUsers("admin");
 
         // Assert
         Assert.assertEquals(adminPage.isAdminPageHeaderExist(), true,
@@ -55,7 +51,7 @@ public class AdminPageTests extends BaseTestNew {
 
     @Test(description = "Verify the skill name by it description")
     public void verifySkillsByDescription() {
-
+        adminPage.listSkills("Description");
     }
 
 }
