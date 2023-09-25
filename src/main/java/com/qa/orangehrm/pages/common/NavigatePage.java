@@ -15,12 +15,34 @@ package com.qa.orangehrm.pages.common;
 
 import org.openqa.selenium.WebDriver;
 
-import com.qa.orangehrm.pages.HomePage;
+import com.qa.orangehrm.util.AppConstants;
 
-public class NavigatePage extends HomePage implements AbstractPage {
+//public class NavigatePage extends HomePage implements AbstractPage {
+public class NavigatePage extends BasePage implements AbstractPage {
 
     public NavigatePage(WebDriver driver) {
         super(driver);
+    }
+
+    // @Override
+    // public void navigateTo(String pageName, WebDriver driver) {
+    // // TODO Auto-generated method stub
+    //
+    // }
+
+    @Override
+    public void navigateTo(String pageName, WebDriver driver) {
+
+        System.out.println("Navigating to page: " + pageName);
+
+        // JLog.info("Navigating to page: " + pageName);
+        // JLog.write("Navigating to page: " + pageName);
+        // JLog.warning("Navigating to page: " + pageName);
+        // JLog.fail("Navigating to page: " + pageName);
+
+        eleUtil.waitForTitleIsAndCapture(AppConstants.HOME_PAGE_TITLE, AppConstants.MEDIUM_DEFAULT_WAIT);
+        eleUtil.doClick(navigateToPageLocator(pageName));
+
     }
 
 }

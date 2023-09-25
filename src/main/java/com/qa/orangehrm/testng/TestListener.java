@@ -16,7 +16,7 @@ package com.qa.orangehrm.testng;
 public class TestListener {
 
     public static void log(String msg) {
-
+        // System.out.println(msg);
     }
 
 }

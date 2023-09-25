@@ -19,7 +19,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.testng.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.qa.orangehrm.screenshot.TakeScreenshot;
 import com.qa.orangehrm.testng.TestListener;
@@ -124,11 +124,16 @@ public class JLog {
         handleWarningErrorFail(message, throwable, takeScreenshot, "FAIL");
 
         if (message != null) {
-            // AssertJUnit.fail(sanitize(message));
-            Assert.fail(sanitize(message));
+            Assertions.fail(sanitize(message));
+
+            // TestNG scope is only limited to src/test/java
+            // Assert.fail(sanitize(message));
+
         } else {
-            // AssertJUnit.fail();
-            Assert.fail();
+            Assertions.fail();
+
+            // TestNG scope is only limited to src/test/java
+            // Assert.fail();
         }
     }
 
@@ -391,6 +396,18 @@ public class JLog {
      */
     public static void setQuiteMode(boolean beQuite) {
         quiteMode = beQuite;
+    }
+
+    public static void blankLine() {
+        if (!quiteMode) {
+            System.out.println();
+
+            if (logForCucumber) {
+                // cucumberWritter(StringEscapeUtils.escapeJson(""));
+            } else {
+                TestListener.log("<br>");
+            }
+        }
     }
 
 }

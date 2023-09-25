@@ -17,10 +17,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.qa.orangehrm.pages.common.NavigatePage;
 import com.qa.orangehrm.util.AppConstants;
 
-public class AdminPage extends NavigatePage {
+//public class AdminPage extends NavigatePage {
+public class AdminPage extends HomePage {
 
     // private final WebDriver driver;
     // private final ElementUtil eleUtil;
@@ -71,7 +71,7 @@ public class AdminPage extends NavigatePage {
      * @param columnName
      */
     public void listSkills(String columnName) {
-
+        menuPage.navigateToMenu(new String[] { "Qualifications", "Skills" });
     }
 
 }
