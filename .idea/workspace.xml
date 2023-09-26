@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e1a3420d-5b36-4e28-8da8-24f9c62ac882" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qa/orangehrm/Playground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qa/orangehrm/Playground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/qa/orangehrm/pages/HomePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/qa/orangehrm/pages/LoginPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/qa/orangehrm/util/AppConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/qa/orangehrm/util/ElementUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qa/orangehrm/base/BaseTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qa/orangehrm/config/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qa/orangehrm/suite/firstTests/FirstParallelTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qa/orangehrm/suite/firstTests/FirstTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qa/orangehrm/suite/testng.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qa/orangehrm/tests/firstTests/FirstParallelTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qa/orangehrm/tests/firstTests/FirstTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qa/orangehrm/tests/login/LoginPageTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qa/orangehrm/util/TestUtil.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2VtJLSk7vlBzJ4TyEzU8H3urIuh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feat/selenium-locators",
+    "last_opened_file_path": "C:/source-spaliwaldev/pom-framework",
+    "settings.editor.selected.configurable": "MavenSettings"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e1a3420d-5b36-4e28-8da8-24f9c62ac882" name="Changes" comment="" />
+      <created>1695649396307</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695649396307</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="feat/selenium-locators" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
