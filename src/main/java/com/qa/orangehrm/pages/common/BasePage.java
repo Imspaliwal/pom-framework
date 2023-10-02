@@ -16,6 +16,7 @@ package com.qa.orangehrm.pages.common;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.qa.orangehrm.util.AppConstants;
 import com.qa.orangehrm.util.ElementUtil;
 
 public class BasePage {
@@ -30,6 +31,13 @@ public class BasePage {
         By locator = By.xpath("//span[text()='" + pageName + "']");
         return locator;
     }
+    
+    // Common login page for any website
+    private final By usernameLocator = By.name("username");
+
+    private final By passwordLocator = By.name("password");
+
+    private final By loginBtnLocator = By.tagName("button");
 
     // Constructor
     public BasePage(WebDriver driver) {
@@ -42,6 +50,18 @@ public class BasePage {
     }
 
     // Methods
+    
+    
+    // Correct this override issue in Login Class
+    
+//    public void doLogin(String username, String password) {
+//        eleUtil.waitForElementVisible(usernameLocator, AppConstants.MEDIUM_DEFAULT_WAIT);
+//
+//        eleUtil.doSendKeys(usernameLocator, username);
+//        eleUtil.doSendKeys(passwordLocator, password);
+//
+//        eleUtil.doClick(loginBtnLocator);
+//    }
 
     // Initializing Properties handled in Base Test
 

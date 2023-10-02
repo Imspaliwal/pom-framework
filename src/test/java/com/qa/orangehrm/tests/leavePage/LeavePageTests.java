@@ -17,9 +17,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.qa.orangehrm.base.BaseTestNew;
+import com.qa.orangehrm.base.BaseTest;
 
-public class LeavePageTests extends BaseTestNew {
+public class LeavePageTests extends BaseTest {
 
     @BeforeTest
     public void leavePageSetup() {

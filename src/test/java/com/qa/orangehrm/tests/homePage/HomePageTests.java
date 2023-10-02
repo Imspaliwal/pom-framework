@@ -17,9 +17,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.qa.orangehrm.base.BaseTestNew;
+import com.qa.orangehrm.base.BaseTest;
 
-public class HomePageTests extends BaseTestNew {
+public class HomePageTests extends BaseTest {
 
     @BeforeClass
     public void homePageSetup() {
