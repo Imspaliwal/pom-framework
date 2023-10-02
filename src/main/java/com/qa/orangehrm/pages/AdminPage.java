@@ -72,6 +72,7 @@ public class AdminPage extends HomePage {
      */
     public void listSkills(String columnName) {
         menuPage.navigateToMenu(new String[] { "Qualifications", "Skills" });
+        
     }
 
 }

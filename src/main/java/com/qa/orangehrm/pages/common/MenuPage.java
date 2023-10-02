@@ -19,6 +19,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.qa.orangehrm.log.JLog;
 import com.qa.orangehrm.util.AppConstants;
 import com.qa.orangehrm.util.ElementUtil;
 
@@ -58,8 +59,8 @@ public class MenuPage extends ElementUtil {
 
     public void navigateToMenu(String[] names) {
 
-        // JLog.blankLine();
-        // JLog.write("Navigation: " + names);
+         JLog.blankLine();
+         JLog.write("Navigation: " + names);
 
         if (names == null) {
             return;
