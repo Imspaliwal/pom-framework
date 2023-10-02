@@ -13,66 +13,169 @@
  */
 package com.qa.orangehrm.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.qa.orangehrm.log.JLog;
 import com.qa.orangehrm.util.AppConstants;
+import com.qa.orangehrm.util.ElementUtil;
 
 //public class AdminPage extends NavigatePage {
 public class AdminPage extends HomePage {
 
-    // private final WebDriver driver;
-    // private final ElementUtil eleUtil;
+	// private final WebDriver driver;
+	// private final ElementUtil eleUtil;
 
-    // Locators
-    By adminPageHeaderLocator = By.xpath("//h6[1]");
+	// ###################### Constructors ########################
 
-    By userNameSearchLocator = By.xpath("//form//input[contains(@class, 'oxd-input--active')]");
-    By searchBtnLocator = By.xpath("//form//button[@type='submit']");
+	public AdminPage(WebDriver driver) {
+		// super.driver = driver;
+		//
+		// eleUtil = new ElementUtil(this.driver);
+		super(driver);
+	}
 
-    By tableRowLocator = By.xpath("//div[contains(@class, 'body')]//div[contains(@class, 'row')]");
+	// ###################### Locators ########################
 
-    // Constructors
-    public AdminPage(WebDriver driver) {
-        // super.driver = driver;
-        //
-        // eleUtil = new ElementUtil(this.driver);
-        super(driver);
-    }
+	// Users Page locators
 
-    // Methods
+	By adminPageHeaderLocator = By.xpath("//h6[1]");
 
-    public boolean isAdminPageHeaderExist() {
+	By userNameSearchLocator = By.xpath("//form//input[contains(@class, 'oxd-input--active')]");
 
-        WebElement adminPageHeader = eleUtil.waitForElementVisible(adminPageHeaderLocator,
-                AppConstants.MEDIUM_DEFAULT_WAIT);
+	By searchBtnLocator = By.xpath("//form//button[@type='submit']");
 
-        return adminPageHeader.isDisplayed();
-    }
+	By tableRowLocator = By.xpath("//div[contains(@class, 'body')]//div[contains(@class, 'row')]");
+	
+	// Add Users Locators
 
-    public int searchSystemUsers(String userName) throws InterruptedException {
+	public WebElement labelLocator(String fieldLabelName) {
+		return eleUtil.getElement(By
+				.xpath(String.format("//label[contains(@class, 'label') and normalize-space()='%s']", fieldLabelName)));
+	}
 
-        eleUtil.waitForElementVisible(userNameSearchLocator, AppConstants.MEDIUM_DEFAULT_WAIT);
-        eleUtil.doSendKeys(userNameSearchLocator, userName);
-        eleUtil.doClick(searchBtnLocator);
+	By dropDownLocator(String labelName) {
+		return By.xpath(String.format(
+				"//label[contains(@class, 'label') and normalize-space()='%s']/../following-sibling::div//div[contains(@class, 'select-text-input')]",
+				labelName));
+	}
 
-        Thread.sleep(3000);
+	By dropDownItemLocator = By.xpath(".//div[contains(@class, 'select-dropdown')]//div[@role='option']");
+	
+	By headerLocator(String headerText) {
+		return By.xpath(String.format("//h6[normalize-space()='%s']", headerText));
+	}
 
-        int count = eleUtil.getElementsCount(tableRowLocator);
+	By buttonLocator(String btnText) {
+		return By.xpath(String.format("//button[normalize-space()='%s']", btnText));
+	}
 
-        return count;
+	By inputFiledLocator(String fieldLabelName) {
+		return By.xpath(
+				String.format("//div[contains(@class, 'input') and normalize-space()='%s']//input", fieldLabelName));
+	}
 
-    }
+	By autocompleteDropDownLocator(String input) {
+		return By.xpath(
+				String.format("//div[contains(@class, 'autocomplete-dropdown')]//span[contains(text(), '%s')]", input));
+	}
 
-    /**
-     * listSkills
-     *
-     * @param columnName
-     */
-    public void listSkills(String columnName) {
-        menuPage.navigateToMenu(new String[] { "Qualifications", "Skills" });
-        
-    }
+	By iconDeleteLocator() {
+		return By.xpath(String.format(""));
+	}
+
+	By iconEditLocator() {
+		return By.xpath(String.format(""));
+	}
+
+	// ###################### Methods ########################
+
+	public boolean isAdminPageHeaderExist() {
+
+		WebElement adminPageHeader = eleUtil.waitForElementVisible(adminPageHeaderLocator,
+				AppConstants.MEDIUM_DEFAULT_WAIT);
+
+		return adminPageHeader.isDisplayed();
+	}
+
+	public int searchSystemUsers(String userName) throws InterruptedException {
+
+		eleUtil.waitForElementVisible(userNameSearchLocator, AppConstants.MEDIUM_DEFAULT_WAIT);
+		eleUtil.doSendKeys(userNameSearchLocator, userName);
+		eleUtil.doClick(searchBtnLocator);
+
+		Thread.sleep(3000);
+
+		int count = eleUtil.getElementsCount(tableRowLocator);
+
+		return count;
+
+	}
+
+	/**
+	 * @param action
+	 * @param userRoleValue
+	 * @param EmployeeName
+	 * @param Status
+	 * @param userName
+	 * @param password
+	 */
+	public void userActions(String action, String userRoleValue, String employeeName, String status, String userName,
+			String password) {
+
+		JLog.blankLine();
+		JLog.info("Interacting with Admin > User Management > Users Page");
+
+		if (action.equalsIgnoreCase("add")) {
+
+			JLog.info("Adding User on User Management > User Page");
+
+			// Click on Add Button
+			JLog.info("Click on Add Button");
+			eleUtil.doClick(buttonLocator("Add"));
+			eleUtil.waitForElementVisible(headerLocator("Add User"), AppConstants.MEDIUM_DEFAULT_WAIT);
+
+			JLog.info("Select User Role");			
+			eleUtil.select("User Role", dropDownLocator("User Role"), dropDownItemLocator, userRoleValue);
+			
+			JLog.info("Select Employee Name");
+			eleUtil.doSendKeys(inputFiledLocator("Employee Name"), employeeName);
+			eleUtil.doClick(autocompleteDropDownLocator(employeeName));
+//			eleUtil.doSendKeys(inputFiledLocator("Employee Name"), Keys.ESCAPE);
+
+			JLog.info("Select Status");
+			eleUtil.select("Status", dropDownLocator("Status"), dropDownItemLocator, status);
+			JLog.info("Enter User Name");
+			eleUtil.doSendKeys(inputFiledLocator("Username"), userName);
+			JLog.info("Enter Password");
+			eleUtil.doSendKeys(inputFiledLocator("Password"), password);
+			JLog.info("Enter Confirm Password");
+			eleUtil.doSendKeys(inputFiledLocator("Confirm Password"), password);
+
+			JLog.info("Click on Save Button");
+			eleUtil.doClick(buttonLocator("Save"));
+			ElementUtil.sleep(20);
+//			eleUtil.waitForElementVisible(headerLocator("Add User"), AppConstants.MEDIUM_DEFAULT_WAIT);
+
+		} else if (action.equalsIgnoreCase("update")) {
+
+		} else if (action.equalsIgnoreCase("delete")) {
+
+		}
+
+	}
+
+	/**
+	 * listSkills
+	 *
+	 * @param columnName
+	 */
+	public void listSkills(String columnName) {
+		menuPage.navigateToMenu(new String[] { "Qualifications", "Skills" });
+
+	}
 
 }

@@ -24,10 +24,10 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.qa.orangehrm.base.BaseTest;
+import com.qa.orangehrm.base.BaseTestOld;
 import com.qa.orangehrm.pages.LoginPage;
 
-public class SeleniumGridInLocal extends BaseTest {
+public class SeleniumGridInLocal extends BaseTestOld {
 
     private WebDriver driver;
     private LoginPage loginPage;

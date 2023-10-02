@@ -1,0 +1,34 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Get Element Suite" verbose="4">
+
+	<test name="Get Element Tests">
+		<parameter name="url"
+			value="https://naveenautomationlabs.com/opencart/index.php?route=common/home" />
+		<classes>
+			<class name="com.qa.tests.actions.GetElementTests">
+				<methods>
+					<include name="getElementsTest_01" />
+					<include name="getElementsTest_02" />
+					<include name="getElementsTest_03" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Get Element Tests Orange HRM">
+		<parameter name="url"
+			value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" />
+		<parameter name="username" value="Admin" />
+		<parameter name="password" value="admin123" />
+		<classes>
+			<class name="com.qa.tests.actions.GetElementTests">
+				<methods>
+					<include name="getElementsTest_04" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+
+</suite>

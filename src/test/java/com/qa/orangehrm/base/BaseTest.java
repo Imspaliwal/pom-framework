@@ -1,7 +1,7 @@
 
 /*
- * @BaseTest.java@
- * Created on 06-Jul-2023
+ * @BaseTestNew.java@
+ * Created on 07-Jul-2023
  *
  * Copyright (c) 2023 Imspaliwal.
  * All Rights Reserved.
@@ -13,57 +13,79 @@
  */
 package com.qa.orangehrm.base;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
+import com.qa.orangehrm.factory.PropertyManager;
+import com.qa.orangehrm.factory.browser.DriverFactory;
+import com.qa.orangehrm.pages.AdminPage;
 import com.qa.orangehrm.pages.HomePage;
+import com.qa.orangehrm.pages.LeavePage;
 import com.qa.orangehrm.pages.LoginPage;
+import com.qa.orangehrm.pages.common.BasePage;
+import com.qa.orangehrm.pages.common.NavigatePage;
 
 public class BaseTest {
 
-    private WebDriver driver;
+	public WebDriver driver;
 
-    protected Properties prop;
-    protected LoginPage loginPage;
-    protected HomePage homePage;
+	protected DriverFactory driverFactory;
+	protected PropertyManager propManager;
+	protected Properties prop;
 
-    @BeforeTest
-    public void setup() throws IOException {
+	protected BasePage basePage;
+	protected LoginPage loginPage;
+	protected HomePage homePage;
+	protected AdminPage adminPage;
+	protected LeavePage leavePage;
+	protected NavigatePage navigatePage;
 
-        // Initialize Properties
+	@Parameters({ "browser", "url", "username", "password" })
+	@BeforeTest
+	public void setup(@Optional String browserName, @Optional String url, @Optional String username,
+			@Optional String password) {
 
-        prop = new Properties();
+		System.out.println("Base Test - Before Test Run");
 
-        FileInputStream ip = new FileInputStream("./src/test/resources/com/qa/orangehrm/config/config.properties");
+		// Initialize properties
+		propManager = new PropertyManager();
+		prop = propManager.init_prop();
 
-        prop.load(ip);
+		if (browserName != null) {
+			prop.setProperty("browser", browserName);
+		}
+		
+		if (url != null) {
+			prop.setProperty("url", url);
+		}
 
-        // Initialize Browser
+		if (username != null && password != null) {
+			prop.setProperty("username", username);
+			prop.setProperty("password", password);
+		}
 
-        driver = new ChromeDriver();
+		// Initialize browser
+		driverFactory = new DriverFactory(prop);
+		driver = driverFactory.init_driver(prop);
 
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
+		// pass driver to Login
+		loginPage = new LoginPage(driver);
+	}
 
-        System.out.println("Running Test on Env: " + prop.getProperty("url"));
+	@AfterTest
+	public void tearDown() {
 
-        driver.get(prop.getProperty("url"));
+		System.out.println("Base Test - After Test Run");
 
-        loginPage = new LoginPage(driver);
+		// close & quite browser
+		// driver.quit();
+		driver.close();
 
-    }
-
-    @AfterTest
-    public void tearDown() {
-
-        driver.quit();
-
-    }
+	}
 
 }
