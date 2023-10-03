@@ -601,6 +601,31 @@ public class ElementUtil {
 
 		return success;
 	}
+	
+	public boolean select(String fieldLabel, By dropDown, By options, String valueToSearch, String valueToSelect)
+			throws NoSuchElementException {
+
+		boolean success = false;
+
+		JLog.info(String.format("Search " +valueToSearch+ " and Select Drown Down %s item: %s", fieldLabel, valueToSelect));
+
+		// Remove already Selected or Clear if required
+
+		// Write in Drop Down search field
+		getElement(dropDown).sendKeys(valueToSearch);
+		ElementUtil.sleep(5);
+		waitForElementsVisible(getElements(options), AppConstants.MEDIUM_DEFAULT_WAIT);
+
+		// List Items
+		List<WebElement> elements = getElements(options);
+		getElementsTextList(elements);
+
+		// Select Item
+		select(options, valueToSelect);
+		ElementUtil.sleep(2);
+
+		return success;
+	}
 
 	/**
 	 * 

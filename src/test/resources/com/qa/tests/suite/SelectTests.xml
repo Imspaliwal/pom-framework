@@ -27,7 +27,7 @@
 		</classes>
 	</test> -->
 	
-	<test name="Select Tests Orange HRM with div html tag">
+<!-- 	<test name="Select Tests Orange HRM with div html tag">
 		<parameter name="url"
 			value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" />
 		<parameter name="username" value="Admin" />
@@ -39,13 +39,11 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
+	</test> -->
 	
-<!-- 	<test name="Select Tests Orange HRM">
+	<test name="Select Tests Orange HRM">
 		<parameter name="url"
-			value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" />
-		<parameter name="username" value="Admin" />
-		<parameter name="password" value="admin123" />
+			value="https://www.flipkart.com/" />
 		<classes>
 			<class name="com.qa.tests.actions.SelectTests">
 				<methods>
@@ -53,7 +51,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->	
+	</test>	
 
 
 
