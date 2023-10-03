@@ -41,6 +41,32 @@ public class ElementUtil {
 	}
 
 	// *********************** Input Utils *********************** //
+	
+	/**
+	 * Clear the input field using Java Script Executor
+	 * 
+	 * @param locator
+	 * 
+	 * @author spaliwal
+	 */
+	public void clear(WebElement locator) {
+		executeJavaScript("arguments[0].value='';", locator);
+		JLog.write("Clear value in WebElement: " + StringUtil.convertWebElementToString(locator));
+	}
+	
+	
+	/**
+	 * Send keys using Java Script Executor
+	 * 
+	 * @param locator
+	 * @param value
+	 * 
+	 * @author spaliwal
+	 */
+	public void executeScript(WebElement locator, String value) {
+		executeJavaScript("arguments[0].value='"+value+"';", locator);
+		JLog.write("Enter value in WebElement: " + StringUtil.convertWebElementToString(locator));
+	}
 
 	/**
 	 * default sendKeys(CharSequence... keysToSend)
@@ -67,22 +93,55 @@ public class ElementUtil {
 	public void doSendKeys(By locator, String value) {
 
 		WebElement ele = getElement(locator);
-
-		ele.clear();
-		JLog.write("Cleared the WebElement: " + locator);
+		
+		// clear is not working
+//		ele.clear();
+//		JLog.write("Cleared the WebElement: " + StringUtil.convertByToString(locator));
 		ele.sendKeys(value);
-		JLog.write("Enter value in WebElement: " + locator);
+		JLog.write("Enter value in WebElement: " + StringUtil.convertByToString(locator));
+	}
+	
+	
+	/**
+	 * doSendKey to enter values in given locators
+	 * 
+	 * @param locator
+	 * @param value
+	 * 
+	 * @author spaliwal
+	 */
+	public void doSendKeys(WebElement locator, String value) {
+		
+//		locator.clear();
+//		JLog.write("Cleared the WebElement: " + StringUtil.convertWebElementToString(locator));
+		locator.sendKeys(value);
+		JLog.write("Enter value in WebElement: " + StringUtil.convertWebElementToString(locator));
 	}
 
 	/**
 	 * Click on given locator
 	 * 
 	 * @param locator
+	 * 
+	 * @author spaliwal
 	 */
 	public void doClick(By locator) {
 		waitForElementVisible(locator, AppConstants.MEDIUM_DEFAULT_WAIT);
 		getElement(locator).click();
-		JLog.write("Click on WebElement: " + locator);
+		JLog.write("Click on WebElement: " + StringUtil.convertByToString(locator));
+	}
+	
+	/**
+	 * Click on given locator
+	 * 
+	 * @param locator
+	 * 
+	 * @author spaliwal
+	 */
+	public void doClick(WebElement locator) {
+		waitForElementVisible(locator, AppConstants.MEDIUM_DEFAULT_WAIT);
+		locator.click();
+		JLog.write("Click on WebElement: " + StringUtil.convertWebElementToString(locator));
 	}
 
 	// *********************** Get Elements Utils *********************** //
@@ -99,9 +158,9 @@ public class ElementUtil {
 
 		try {
 			element = driver.findElement(locator);
-			JLog.write("Element is found using this locator: " + locator);
+			JLog.write("Element is found using this locator: " + StringUtil.convertByToString(locator));
 		} catch (NoSuchElementException e) {
-			JLog.fail("Element is not found using this locator: " + locator);
+			JLog.fail("Element is not found using this locator: " + StringUtil.convertByToString(locator));
 			element = waitForElementVisible(locator, AppConstants.MEDIUM_DEFAULT_WAIT);
 		}
 
@@ -125,7 +184,7 @@ public class ElementUtil {
 	}
 
 	/**
-	 * Get Element Count
+	 * Get Elements Count
 	 * 
 	 * @param locator
 	 * @return
@@ -134,6 +193,19 @@ public class ElementUtil {
 	 */
 	public int getElementsCount(By locator) {
 		return getElements(locator).size();
+	}
+	
+	
+	/**
+	 * Get Elements Count
+	 * 
+	 * @param locator
+	 * @return
+	 * 
+	 * @author spaliwal
+	 */
+	public int getElementsCount(List<WebElement> locator) {
+		return locator.size();
 	}
 
 	// *********************** Java Script Utils *********************** //
@@ -190,10 +262,10 @@ public class ElementUtil {
 	 * 
 	 * @author spaliwal
 	 */
-	public void scrollToElement(WebElement element) {
+	public void scrollToElement(WebElement locator) {
 		// String[] frames = getSwitchToFrames();
-		executeJavaScript("arguments[0].scrollIntoView(true);", element);
-		JLog.write("Scroll to the Element: " + element);
+		executeJavaScript("arguments[0].scrollIntoView(true);", locator);
+		JLog.write("Scroll to the Element: " + StringUtil.convertWebElementToString(locator));
 		// switchToFrame(frames);
 	}
 
@@ -204,10 +276,10 @@ public class ElementUtil {
 	 * 
 	 * @author spaliwal
 	 */
-	public void scrollToElement(By element) {
+	public void scrollToElement(By locator) {
 		// String[] frames = getSwitchToFrames();
-		executeJavaScript("arguments[0].scrollIntoView(true);", getElement(element));
-		JLog.write("Scroll to the Element: " + element);
+		executeJavaScript("arguments[0].scrollIntoView(true);", getElement(locator));
+		JLog.write("Scroll to the Element: " + StringUtil.convertByToString(locator));
 		// switchToFrame(frames);
 	}
 
@@ -219,10 +291,10 @@ public class ElementUtil {
 	 * 
 	 * @author spaliwal
 	 */
-	public WebElement scrollToElementReturn(WebElement element) {
-		executeJavaScript("arguments[0].scrollIntoView(true);", element);
-		JLog.write("Scroll to the Element: " + element);
-		return element;
+	public WebElement scrollToElementReturn(WebElement locator) {
+		executeJavaScript("arguments[0].scrollIntoView(true);", locator);
+		JLog.write("Scroll to the Element: " + StringUtil.convertWebElementToString(locator));
+		return locator;
 	}
 
 	/**

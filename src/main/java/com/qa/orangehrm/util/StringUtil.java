@@ -49,9 +49,9 @@ public class StringUtil {
 		}
 		try {
 			String[] parts = element.toString().split("->");
-			String[] xpath = parts[parts.length - 2].split(" ");
+			String[] xpath = parts[parts.length - 1].split(" ");
 			String path = xpath[xpath.length - 1].trim();
-			return path.substring(0, path.length() - 2);
+			return path.substring(0, path.length() - 1);
 //			return parts[parts.length - 2].replaceFirst("(?s)(.*)\\]", "$1" + "");
 		} catch (ArrayIndexOutOfBoundsException e) {
 			return element.toString();

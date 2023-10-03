@@ -18,6 +18,8 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 import com.qa.orangehrm.log.JLog;
 import com.qa.orangehrm.util.AppConstants;
@@ -45,8 +47,16 @@ public class AdminPage extends HomePage {
 	By adminPageHeaderLocator = By.xpath("//h6[1]");
 
 	By userNameSearchLocator = By.xpath("//form//input[contains(@class, 'oxd-input--active')]");
+	
+	By inputFieldLocator(String labelName) {
+		return By.xpath(String.format(
+				"//label[contains(@class, 'label') and normalize-space()='%s']/../following-sibling::div//input[contains(@class, 'input')]",
+				labelName));
+	}
 
 	By searchBtnLocator = By.xpath("//form//button[@type='submit']");
+	
+	By resetBtnLocator = By.xpath("//button[normalize-space()='Reset']");
 
 	By tableRowLocator = By.xpath("//div[contains(@class, 'body')]//div[contains(@class, 'row')]");
 	
@@ -104,12 +114,15 @@ public class AdminPage extends HomePage {
 	public int searchSystemUsers(String userName) throws InterruptedException {
 
 		eleUtil.waitForElementVisible(userNameSearchLocator, AppConstants.MEDIUM_DEFAULT_WAIT);
-		eleUtil.doSendKeys(userNameSearchLocator, userName);
+//		eleUtil.clear(userNameSearchLocator);
+		eleUtil.doSendKeys(inputFieldLocator("Username"), userName);
 		eleUtil.doClick(searchBtnLocator);
 
 		Thread.sleep(3000);
 
 		int count = eleUtil.getElementsCount(tableRowLocator);
+		
+		eleUtil.doClick(resetBtnLocator);
 
 		return count;
 
@@ -156,7 +169,8 @@ public class AdminPage extends HomePage {
 			eleUtil.doSendKeys(inputFiledLocator("Confirm Password"), password);
 
 			JLog.info("Click on Save Button");
-			eleUtil.doClick(buttonLocator("Save"));
+//			eleUtil.doClick(buttonLocator("Save"));
+			eleUtil.doClick(buttonLocator("Cancel"));
 			ElementUtil.sleep(20);
 //			eleUtil.waitForElementVisible(headerLocator("Add User"), AppConstants.MEDIUM_DEFAULT_WAIT);
 
