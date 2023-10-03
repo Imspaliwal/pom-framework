@@ -75,6 +75,19 @@ public class SelectTests extends BaseTest {
 
 	@Test(description = "dynamic drop down tests having auto-suggestions", enabled = true)
 	public void dynamicDropDownTest_03() {
+		
+		ElementUtil.sleep(6);
+		
+		By search = By.xpath("//input[contains(@title, 'Search for Products, Brands and More')]");
+		
+		By options = By.xpath(".//form[@action='/search']//li");
+		
+		String valueToSearch = "iphone 15";
+		
+		String valueToSelect ="iphone 15";
+		
+		eleUtil.select("Search", search, options, valueToSearch, valueToSelect);
+		
 
 	}
 
