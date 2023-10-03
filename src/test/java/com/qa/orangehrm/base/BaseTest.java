@@ -21,13 +21,13 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.qa.orangehrm.factory.PropertyManager;
-import com.qa.orangehrm.factory.browser.DriverFactory;
+import com.qa.api_common.factory.browser.DriverFactory;
+import com.qa.api_common.factory.property.PropertyManager;
 import com.qa.orangehrm.pages.AdminPage;
 import com.qa.orangehrm.pages.HomePage;
 import com.qa.orangehrm.pages.LeavePage;
 import com.qa.orangehrm.pages.LoginPage;
-import com.qa.orangehrm.pages.common.BasePage;
+import com.qa.orangehrm.pages.common.AppBasePage;
 import com.qa.orangehrm.pages.common.NavigatePage;
 
 public class BaseTest {
@@ -38,7 +38,7 @@ public class BaseTest {
 	protected PropertyManager propManager;
 	protected Properties prop;
 
-	protected BasePage basePage;
+	protected AppBasePage basePage;
 	protected LoginPage loginPage;
 	protected HomePage homePage;
 	protected AdminPage adminPage;

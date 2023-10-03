@@ -19,9 +19,9 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.qa.orangehrm.log.JLog;
+import com.qa.api_common.log.JLog;
+import com.qa.api_common.util.ElementUtil;
 import com.qa.orangehrm.util.AppConstants;
-import com.qa.orangehrm.util.ElementUtil;
 
 public class MenuPage extends ElementUtil {
 
