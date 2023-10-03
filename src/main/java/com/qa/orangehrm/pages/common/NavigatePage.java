@@ -15,11 +15,12 @@ package com.qa.orangehrm.pages.common;
 
 import org.openqa.selenium.WebDriver;
 
-import com.qa.orangehrm.log.JLog;
+import com.qa.api_common.log.JLog;
+import com.qa.api_common.pages.common.AbstractPage;
 import com.qa.orangehrm.util.AppConstants;
 
 //public class NavigatePage extends HomePage implements AbstractPage {
-public class NavigatePage extends BasePage implements AbstractPage {
+public class NavigatePage extends AppBasePage implements AbstractPage {
 
     public NavigatePage(WebDriver driver) {
         super(driver);

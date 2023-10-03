@@ -15,6 +15,7 @@ package com.qa.orangehrm.pages.common;
 
 import org.openqa.selenium.WebDriver;
 
+import com.qa.api_common.pages.common.AbstractPage;
 import com.qa.orangehrm.pages.AdminPage;
 import com.qa.orangehrm.pages.LeavePage;
 

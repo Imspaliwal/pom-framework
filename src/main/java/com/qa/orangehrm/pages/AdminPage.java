@@ -21,9 +21,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import com.qa.orangehrm.log.JLog;
+import com.qa.api_common.log.JLog;
+import com.qa.api_common.util.ElementUtil;
 import com.qa.orangehrm.util.AppConstants;
-import com.qa.orangehrm.util.ElementUtil;
 
 //public class AdminPage extends NavigatePage {
 public class AdminPage extends HomePage {
