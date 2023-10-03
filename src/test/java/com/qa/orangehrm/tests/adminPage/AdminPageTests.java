@@ -15,6 +15,7 @@ package com.qa.orangehrm.tests.adminPage;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.orangehrm.base.BaseTest;
@@ -49,6 +50,29 @@ public class AdminPageTests extends BaseTest {
 		Assert.assertEquals(userCount, 1, "User name is not searched correctly");
 
 	}
+	
+	@Test(description = "Verify user exist by searching all search parameter on User Management page", enabled = true, groups = {
+			"Admin Suite", "User Management Suite", "Regression Suite" }, dataProvider = "SearchUserDataProvider")
+	public void doSearchByUserNameWithDataProviderTest(String userName) throws InterruptedException {
+
+		int userCount = adminPage.searchSystemUsers(userName);
+
+		// Assert
+		Assert.assertEquals(userCount, 1, "User name is not searched correctly");
+
+	}
+	
+	@DataProvider(name = "SearchUserDataProvider")
+	public Object[]	searchUserDataProvider() {
+		
+		Object[] data = new Object[3];
+		
+		data[0] = "Admin";
+		data[1] = "Hana Nguyen";
+		data[2] = "JohnWick";
+		
+		return data;
+	}
 
 	@Test(description = "Verify Admin User added succussfully on User Management page", enabled = true, groups = {
 			"Admin Suite", "User Management Suite", "Regression Suite" })
@@ -56,6 +80,43 @@ public class AdminPageTests extends BaseTest {
 		
 		adminPage.userActions("add", "ESS", "Reece MacGyver Klocko", "Enabled", "elonmusk", "Elon123");
 		
+	}
+	
+	@Test(description = "Verify Admin User added succussfully on User Management page", enabled = true, groups = {
+			"Admin Suite", "User Management Suite", "Regression Suite" }, dataProvider = "AddUserDataProvider")
+	public void verifyAddAdminUserWithDataProviderTest(String userRole, String employeeName, String status, String username, String password) {
+		
+		adminPage.userActions("add", userRole, employeeName, status, username, password);
+		
+	}
+	
+	@DataProvider(name = "AddUserDataProvider")
+	public Object[]	addUserDataProvider() {
+		
+		Object[][] data = new Object[3][5];
+		
+		// First Row
+		data[0][0] = "ESS";
+		data[0][1] = "Adelbert Bernier";
+		data[0][2] = "Enabled";
+		data[0][3] = "elonmusk";
+		data[0][4] = "Elon123";
+		
+		// Second Row
+		data[1][0] = "Admin";
+		data[1][1] = "Test User153";
+		data[1][2] = "Enabled";
+		data[1][3] = "therock";
+		data[1][4] = "therock123";
+		
+		// Third Row
+		data[2][0] = "ESS";
+		data[2][1] = "Test User27";
+		data[2][2] = "Enabled";
+		data[2][3] = "JohnWick";
+		data[2][4] = "JohnWick123";
+		
+		return data;
 	}
 
 	@Test(description = "Verify Admin User deleted succussfully on User Management page", enabled = true, groups = {

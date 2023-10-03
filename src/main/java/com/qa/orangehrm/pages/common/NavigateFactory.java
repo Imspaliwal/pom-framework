@@ -16,6 +16,7 @@ package com.qa.orangehrm.pages.common;
 import org.openqa.selenium.WebDriver;
 
 import com.qa.orangehrm.pages.AdminPage;
+import com.qa.orangehrm.pages.LeavePage;
 
 public class NavigateFactory {
 
@@ -27,7 +28,7 @@ public class NavigateFactory {
         case "PIM":
             return new AdminPage(driver);
         case "Leave":
-            return new AdminPage(driver);
+            return new LeavePage(driver);
         case "Time":
             return new AdminPage(driver);
         case "Recruitment":

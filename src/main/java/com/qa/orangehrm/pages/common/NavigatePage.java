@@ -15,6 +15,7 @@ package com.qa.orangehrm.pages.common;
 
 import org.openqa.selenium.WebDriver;
 
+import com.qa.orangehrm.log.JLog;
 import com.qa.orangehrm.util.AppConstants;
 
 //public class NavigatePage extends HomePage implements AbstractPage {
@@ -33,7 +34,7 @@ public class NavigatePage extends BasePage implements AbstractPage {
     @Override
     public void navigateTo(String pageName, WebDriver driver) {
 
-        System.out.println("Navigating to page: " + pageName);
+        JLog.write("Navigating to page: " + pageName);
 
         // JLog.info("Navigating to page: " + pageName);
         // JLog.write("Navigating to page: " + pageName);

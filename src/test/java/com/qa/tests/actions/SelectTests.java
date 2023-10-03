@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.qa.orangehrm.base.BaseTest;
+import com.qa.orangehrm.util.AppConstants;
 import com.qa.orangehrm.util.ElementUtil;
 
 /**
@@ -46,6 +47,16 @@ public class SelectTests extends BaseTest {
 	public void dynamicDropDownTest_01() {
 		
 
+		
+		// Actual test step
+
+		By dropDownLocator = By.xpath("//label[contains(@class, 'label') and normalize-space()='User Role']/../following-sibling::div//div[contains(@class, 'select-text-input')]");
+
+		By dropDownItemLocator = By.xpath(".//div[contains(@class, 'select-dropdown')]//div[@role='option']");
+
+		// dynamic method to select the option from dropdown
+		eleUtil.select("User Role", dropDownLocator, dropDownItemLocator, "ESS");
+		
 
 	}
 
@@ -60,7 +71,11 @@ public class SelectTests extends BaseTest {
 		ElementUtil.sleep(3);
 
 		eleUtil.doClick(By.xpath(String.format("//button[normalize-space()='%s']", "Add")));
-
+		
+		By headerLocator = By.xpath("//h6[normalize-space()='Add User']");
+		
+		eleUtil.waitForElementVisible(headerLocator, AppConstants.MEDIUM_DEFAULT_WAIT);
+		
 		
 		// Actual test step
 
@@ -75,6 +90,17 @@ public class SelectTests extends BaseTest {
 
 	@Test(description = "dynamic drop down tests having auto-suggestions", enabled = true)
 	public void dynamicDropDownTest_03() {
+		
+		
+		
+		// Actual test step
+
+		By dropDownLocator = By.xpath("//label[contains(@class, 'label') and normalize-space()='User Role']/../following-sibling::div//div[contains(@class, 'select-text-input')]");
+
+		By dropDownItemLocator = By.xpath(".//div[contains(@class, 'select-dropdown')]//div[@role='option']");
+
+		// dynamic method to select the option from dropdown
+		eleUtil.select("User Role", dropDownLocator, dropDownItemLocator, "ESS");
 
 	}
 
